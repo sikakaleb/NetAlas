@@ -1,0 +1,64 @@
+﻿@model NetAtlas2.Models.User
+
+@{
+    ViewData["Title"] = "UserProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1 class="text-center">UserProfile</h1>
+
+<div class="well">
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Account created
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+        <dt class="col-sm-2" style="margin-top:10px;">
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.ImageUrl.Length > 0)
+            {
+                <img src="@Url.Content(Model.ImageUrl)" alt="No image"
+                     class="img-responsive img-circle" style="height:150px;width:150px;" />
+            }
+            <br /> <br />
+            @using (Html.BeginForm("UpdatePicture", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type='hidden' value="@ViewBag.UseId" name='UseId' />
+                <input type='hidden' value="@ViewBag.Img" name='Img' />
+
+                <input type="file" name="Picture" class="col-sm-2 form-control" />
+                <br /><br /><input type="submit" name="Save Image" class="btn btn-primary" />
+            }
+        </dd>
+    </dl>
+</div>
+

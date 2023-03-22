@@ -1,0 +1,82 @@
+﻿@model NetAtlas2.Models.User
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="text-center">UserProfile</h1>
+
+<div class="row">
+    <div class="well">
+        <hr />
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Fullname :
+            </dt>
+
+            <dd class="col-sm-10">
+                @ViewBag.Model.FullName
+            </dd>
+            <dt class="col-sm-2">
+                Username :
+            </dt>
+
+            <dd class="col-sm-10">
+                @ViewBag.Model.UserName :
+            </dd>
+
+            <dt class="col-sm-2">
+                Country :
+            </dt>
+
+            <dd class="col-sm-10">
+                @ViewBag.Model.Country :
+            </dd>
+
+            <dt class="col-sm-2">
+                Email :
+            </dt>
+
+            <dd class="col-sm-10">
+                @ViewBag.Model.Email
+            </dd>
+
+            <dt class="col-sm-2">
+                Account Created :
+            </dt>
+
+            <dd class="col-sm-10">
+                @ViewBag.Model.CreatedOn
+            </dd>
+
+            <dt class="col-sm-3">
+                Date de naissance :
+            </dt>
+
+            <dd class="col-sm-9">
+                @ViewBag.Model.DatNaiss
+            </dd>
+            <dt class="col-sm-3">
+                Bio:
+            </dt>
+
+            <dd class="col-sm-9">
+                @ViewBag.Model.Bio
+            </dd>
+            <dt class="col-sm-2">
+                Profil :
+            </dt>
+            <dd class="col-sm-10">
+                @if (@ViewBag.Model.ImageUrl.Length > 0)
+                {
+                    <img src="@Url.Content(ViewBag.Model.ImageUrl)" alt="no image" style="height:64px" class="image-responsive img-circle" />
+                }
+                else
+                {
+                    <img src="@Url.Content("~/Profile Images/profil_vide.png")" alt="no image" style="height:64px" class="image-responsive img-circle" />
+
+                }
+            </dd>
+
+        </dl>
+    </div>

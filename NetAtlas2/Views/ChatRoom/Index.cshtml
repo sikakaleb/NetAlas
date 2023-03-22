@@ -1,0 +1,905 @@
+﻿@model IEnumerable<NetAtlas2.Models.Publication>
+
+@{
+    ViewData["Title"] = "Index";
+    // Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>(3) NetAtlas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/line-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/line-awesome-font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/lib/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/lib/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/responsive.css">
+    <link href="~/Content/user/images/netAtlas.png" rel="icon">
+</head>
+
+
+<body>
+
+
+    <div class="wrapper">
+
+
+
+        <header>
+            <div class="container">
+                <div class="header-data">
+                    <div class="logo">
+                        <a href="index.html" title=""><img src="~/Content/user/images/logo.png" alt=""></a>
+                    </div>
+                    <!--logo end-->
+                    <div class="search-bar">
+                        @using (Html.BeginForm("PostSearch", "Friends", FormMethod.Post))
+                        {
+                            <input type="text" name="search" placeholder="Search...">
+                            <button type="submit"><i class="la la-search"></i></button>
+                        }
+                    </div>
+                    <!--search-bar end-->
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="@Url.Action("Index","ChatRoom",new { id = Convert.ToInt32(ViewBag.UserId) ,Img="" })" title="">
+                                    <span><img src="~/Content/user/images/icon1.png" alt=""></span>
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="profiles.html" title="">
+                                    <span><img src="~/Content/user/images/icon4.png" alt=""></span>
+                                    Profiles
+                                </a>
+                                <ul>
+                                    <li><a href="@Url.Action("Index", "User", new {id=ViewBag.UserId,Img=""})" title="">User Profile</a></li>
+                                    <li><a href="@Url.Action("Index", "Friends", new {id=ViewBag.UserId,Img=""})" title="">Friends</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" title="" class="not-box-open">
+                                    <span><img src="~/Content/user/images/icon6.png" alt=""></span>
+                                    Messages
+                                </a>
+                                <div class="notification-box msg">
+                                    <div class="nt-title">
+                                        <h4>Setting</h4>
+                                        <a href="#" title="">Clear all</a>
+                                    </div>
+                                    <div class="nott-list">
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="~/Content/user/images/resources/ny-img1.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="messages.html" title="">Jassica William</a> </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+                                                <span>2 min ago</span>
+                                            </div>
+                                            <!--notification-info -->
+                                        </div>
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="~/Content/user/images/resources/ny-img2.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="messages.html" title="">Jassica William</a></h3>
+                                                <p>Lorem ipsum dolor sit amet.</p>
+                                                <span>2 min ago</span>
+                                            </div>
+                                            <!--notification-info -->
+                                        </div>
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="~/Content/user/images/resources/ny-img3.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3><a href="messages.html" title="">Jassica William</a></h3>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                    eiusmod tempo incididunt ut labore et dolore magna aliqua.
+                                                </p>
+                                                <span>2 min ago</span>
+                                            </div>
+                                            <!--notification-info -->
+                                        </div>
+                                        <div class="view-all-nots">
+                                            <a href="messages.html" title="">View All Messsages</a>
+                                        </div>
+                                    </div>
+                                    <!--nott-list end-->
+                                </div>
+                                <!--notification-box end-->
+                            </li>
+                            <li>
+                                <a href="#" title="" class="not-box-open">
+                                    <span><img src="~/Content/user/images/icon7.png" alt=""></span>
+                                    Notification
+                                </a>
+                                <div class="notification-box">
+                                    <div class="nt-title">
+                                        <h4>Setting</h4>
+                                        <a href="#" title="">Clear all</a>
+                                    </div>
+                                    <div class="nott-list">
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="~/Content/user/images/resources/ny-img1.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3>
+                                                    <a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div>
+                                            <!--notification-info -->
+                                        </div>
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="~/Content/user/images/resources/ny-img2.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3>
+                                                    <a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div>
+                                            <!--notification-info -->
+                                        </div>
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="~/Content/user/images/resources/ny-img3.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3>
+                                                    <a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div>
+                                            <!--notification-info -->
+                                        </div>
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="~/Content/user/images/resources/ny-img2.png" alt="">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3>
+                                                    <a href="#" title="">Jassica William</a> Comment on your project.
+                                                </h3>
+                                                <span>2 min ago</span>
+                                            </div>
+                                            <!--notification-info -->
+                                        </div>
+                                        <div class="view-all-nots">
+                                            <a href="#" title="">View All Notification</a>
+                                        </div>
+                                    </div>
+                                    <!--nott-list end-->
+                                </div>
+                                <!--notification-box end-->
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--nav end-->
+                    <div class="menu-btn">
+                        <a href="#" title=""><i class="fa fa-bars"></i></a>
+                    </div>
+                    <!--menu-btn end-->
+                    <div class="user-account">
+                        <div class="user-info">
+                            <img src="http://via.placeholder.com/30x30" alt="">
+                            <a href="#" title="">@ViewBag.username</a>
+                            <i class="la la-sort-down"></i>
+                        </div>
+                        <div class="user-account-settingss">
+                            <h3>Online Status</h3>
+                            <ul class="on-off-status">
+                                <li>
+                                    <div class="fgt-sec">
+                                        <input type="radio" name="cc" id="c5">
+                                        <label for="c5">
+                                            <span></span>
+                                        </label>
+                                        <small>Online</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fgt-sec">
+                                        <input type="radio" name="cc" id="c6">
+                                        <label for="c6">
+                                            <span></span>
+                                        </label>
+                                        <small>Offline</small>
+                                    </div>
+                                </li>
+                            </ul>
+                            <h3>Setting</h3>
+                            <ul class="us-links">
+                                <li><a href="profile-account-setting.html" title="">Account Setting</a></li>
+                                <li><a href="#" title="">Terms & Conditions</a></li>
+                            </ul>
+                            <h3><a href="@Url.Action("Logout","Account")" title="">Log out</a></h3>
+                        </div>
+                        <!--user-account-settingss end-->
+                    </div>
+                </div>
+                <!--header-data end-->
+            </div>
+        </header>
+        <!--header end-->
+
+        <main>
+            <div class="main-section">
+                <div class="container">
+                    <div class="main-section-data">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 pd-left-none no-pd">
+                                <div class="main-left-sidebar no-margin">
+                                    <div class="user-data full-width">
+                                        <div class="user-profile">
+                                            <div class="username-dt">
+                                                <div class="usr-pic">
+                                                    @if (ViewBag.ImageUrl.Length > 0)
+                                                    {
+                                                        <img src="@Url.Content(ViewBag.ImageUrl)" alt="no image" style="height:64px" class="image-responsive img-circle" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="@Url.Content("~/Profile Images/profil_vide.png")" alt="no image" style="height:64px" class="image-responsive img-circle" />
+
+                                                    }
+                                                </div>
+                                            </div>
+                                            <!--user-dt end-->
+                                            <div class="user-specs">
+                                                <h3>@ViewBag.username </h3>
+                                                <span>Graphic Designer at Self Employed</span>
+                                            </div>
+                                        </div>
+                                        <!--user-profile end-->
+                                        <ul class="user-fw-status">
+                                            <li>
+                                                <h4>Friends</h4>
+                                                <span>@ViewBag.Allfriends</span>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile.html" title="">View Profile</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--user-data end-->
+                                    <!--------------------------------------------------------------------------------------------------------------->
+                                    <div class="suggestions full-width">
+                                        <div class="sd-title">
+                                            <h3>Suggestions</h3>
+                                            <i class="la la-ellipsis-v"></i>
+                                        </div><!--sd-title end-->
+                                        <div class="suggestions-list">
+                                            @foreach (var item in ViewBag.stranger)
+                                            {
+                                            <div class="suggestion-usd">
+                                                @if (item.ImageUrl.Length > 0)
+                                                {
+                                                    <img src="@Url.Content(item.ImageUrl)" alt="no image" style="height:12px;width:10px" class="image-responsive img-circle" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="@Url.Content("~/Profile Images/profil_vide.png")" alt="no image" style="height:64px" class="image-responsive img-circle" />
+
+                                                }                                                    <div class="sgt-text">
+                                                    <h4>@item.UserName</h4>
+                                                    <span>@item.Bio</span>
+                                                </div>
+                                                <span><i class="la la-plus"></i></span>
+                                            </div>
+                                            }
+                                            <div class="view-more">
+                                                <a href="#" title="">View More</a>
+                                            </div>
+                                        </div><!--suggestions-list end-->
+                                    </div><!--suggestions end-->
+                                    <!--suggestions-list end-->
+
+
+                                    <div class="tags-sec full-width">
+                                        <ul>
+                                            <li><a href="#" title="">Help Center</a></li>
+                                            <li><a href="#" title="">About</a></li>
+                                            <li><a href="#" title="">Privacy Policy</a></li>
+                                            <li><a href="#" title="">Community Guidelines</a></li>
+                                            <li><a href="#" title="">Cookies Policy</a></li>
+                                            <li><a href="#" title="">Career</a></li>
+                                            <li><a href="#" title="">Language</a></li>
+                                            <li><a href="#" title="">Copyright Policy</a></li>
+                                        </ul>
+                                        <div class="cp-sec">
+                                            <img src="~/Content/user/images/logo2.png" alt="">
+                                            <p><img src="~/Content/user/images/cp.png" alt="">Copyright 2022</p>
+                                        </div>
+                                    </div>
+                                    <!--tags-sec end-->
+                                </div>
+                                <!--main-left-sidebar end-->
+                            </div>
+                            <div class="col-lg-6 col-md-8 no-pd">
+                                <div class="main-ws-sec">
+                                    <div class="post-topbar">
+                                        <div class="user-picy">
+                                            <img src="http://via.placeholder.com/100x100" alt="">
+                                        </div>
+                                        <div class="post-st">
+                                            <ul>
+                                                <li><a class="post_project" href="#" title="">Post photo/video</a></li>
+                                                <li><a class="post-jb active" href="#" title="">Post message</a></li>
+                                            </ul>
+                                        </div>
+                                        <!--post-st end-->
+                                    </div>
+                                    <!--post-topbar end-->
+                                    <div class="posts-section">
+                                        @if (true)
+                                        {
+                                            int a = 0;
+                                            foreach (var publication in Model)
+                                            {
+                                                a += 1;
+                                                <div class="post-bar">
+                                                    <div class="post_topbar">
+                                                        <div class="usy-dt">
+                                                            
+                                                            @if (publication.User.ImageUrl.Length > 0)
+                                                            {
+                                                                <img src="@Url.Content(publication.User.ImageUrl)" alt="no image" style="height:64px" class="image-responsive img-circle" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <img src="@Url.Content("~/Profile Images/profil_vide.png")" alt="no image" style="height:64px" class="image-responsive img-circle" />
+
+                                                            }
+                                                            <div class="usy-name">
+                                                                <h3>@publication.User.UserName</h3>
+                                                                <span><img src="~/Content/user/images/clock.png" alt="">@publication.CreatedOn</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ed-opts">
+                                                            <a href="#" title="" class="ed-opts-open">
+                                                                <i class="la la-ellipsis-v"></i>
+                                                            </a>
+                                                            <ul class="ed-options">
+                                                                <li><a href="#" title="">Edit Post</a></li>
+                                                                @if (publication.User.Id == ViewBag.UserId)
+                                                                {
+                                                                    <li><a href="@Url.Action("DeletePublication", "ChatRoom", new { id = publication.Id })" title="">Delete Post</a></li>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <li><a href="#" title="">Delete Post</a></li>
+                                                                }
+                                                                <li><a href="#" title="">Close</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="epi-sec">
+                                                        <ul class="descp">
+                                                            <li><img src="~/Content/user/images/icon9.png" alt=""><span>@publication.User.Country</span></li>
+                                                        </ul>
+                                                        <ul class="bk-links">
+                                                            <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="job_descp">
+                                                        <h3>@publication.titre</h3>
+                                                        @foreach (var message in ViewBag.comments)
+                                                        {
+                                                            if (publication.Id == message.Id)
+                                                            {
+                                                                <p>
+                                                                    @message.Text <a href="#" title="">view more</a>
+                                                                </p>
+
+                                                            }
+                                                        }
+                                                        @foreach (var lien in ViewBag.liens)
+                                                        {
+                                                            if (publication.Id == lien.Id)
+                                                            {
+                                                                <p>
+                                                                                                                                        <input type="hidden" value="@publication.Id" />
+
+                                                                    <a href="https://@lien.Link">@lien.Link</a>
+                                                                    <a href="#" title="">view more</a>
+                                                                </p>
+                                                            }
+                                                        }
+                                                        @foreach (var video in ViewBag.videos)
+                                                        {
+                                                            if (publication.Id == video.Id)
+                                                            {
+                                                            <p>
+
+                                                                <video width="500" height="240" controls>
+                                                                    <source src="@Url.Content(video.Vid_Picture)" type="video/mp4">
+                                                                    <source src="@Url.Content(video.Vid_Picture)" type="video/x-ms-wmv">
+                                                                    Votre navigateur ne supporte pas la balise vidéo.
+                                                                </video>
+                                                                <br><br>
+                                                                <a href="#" title="">view more</a>
+                                                            </p>
+                                                            }
+                                                        }
+                                                        @foreach (var photo in ViewBag.photos)
+                                                        {
+                                                            if (publication.Id == photo.Id)
+                                                            {
+                                                                <p>
+                                                                    <img width="500" height="240" src="@Url.Content(photo.Phot_Picture)" class="img-responsive"><br><br>
+                                                                    <a href="#" title="">view more</a>
+                                                                </p>
+                                                            }
+                                                        }
+
+
+
+
+                                                        <ul class="skill-tags">
+                                                            <li><a href="#" title="">HTML</a></li>
+                                                            <li><a href="#" title="">CSS</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="job-status-bar">
+                                                        <ul class="like-com">
+                                                            <li>
+                                                                <a href="#"><i class="la la-heart"></i> Like</a>
+                                                                <img src="~/Content/user/images/liked-img.png" alt="">
+                                                                <span>25</span>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" title="" class="com">
+                                                                    <img src="~/Content/user/images/com.png"
+                                                                         alt=""> Comment 15
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <a><i class="la la-eye"></i>Views 50</a>
+                                                    </div>
+                                                </div>
+                                                <!--post-bar end-->
+                                                if (a % 3 == 0)
+                                                {
+                                                    <div class="top-profiles">
+                                                        <div class="pf-hd">
+                                                            <h3>Top Profiles</h3>
+                                                            <i class="la la-ellipsis-v"></i>
+                                                        </div>
+                                                        <div class="profiles-slider">
+
+                                                            @if (@ViewBag.Search == "no corresponding response to the search")
+                                                            {
+                                                            <h4 class="text-danger text-center">@ViewBag.Search</h4>
+                                                            }
+                                                            else if (@ViewBag.Search == "yes")
+                                                            {
+                                                            foreach (var user in ViewBag.stranger)
+                                                            {
+
+                                                            Boolean isId = false;
+                                                            Boolean estdedans = false;
+                                                            Boolean estDejaInvite = false;
+                                                            <div class="user-profy">
+                                                                @if (user.ImageUrl.Length > 0)
+                                                                {
+                                                                    <img src="@Url.Content(user.ImageUrl)" alt="no image" style="height:64px" class="image-responsive img-circle" />
+                                                                }
+                                                                else
+                                                                {
+                                                                    <img src="@Url.Content("~/Profile Images/profil_vide.png")" alt="no image" style="height:64px" class="image-responsive img-circle" />
+
+                                                                }
+                                                                <h3> @user.UserName</h3>
+                                                                <span>Bio</span>
+                                                                @if (ViewBag.Id == user.Id)
+                                                                {
+                                                                    isId = true;
+                                                                    using (Html.BeginForm("InviteFriend", "Friends"))
+                                                                    {
+                                                                        <ul>
+                                                                            <li><a href="#" title="" class="envlp">Is you</a></li>
+                                                                        </ul>
+                                                                    }
+                                                                }
+                                                                @if (isId == false)
+                                                                {
+
+                                                                    foreach (var l in ((List<int>)ViewData["listfriend"]))
+                                                                    {
+                                                                        if (@l == user.Id)
+                                                                        {
+                                                                            estdedans = true;
+                                                                            <ul>
+                                                                                <li><a href="@Url.Action("UnAddfriend", "Friends", new { id = @user.Id })" title="" class="envlp ">Remove</a></li>
+                                                                            </ul>
+                                                                            break;
+                                                                        }
+
+                                                                    }
+                                                                }
+                                                                @if (estdedans == false && isId == false)
+                                                                {
+
+                                                                    foreach (var l in ((List<int>)ViewData["listinvitation"]))
+                                                                    {
+                                                                        if (@l == user.Id)
+                                                                        {
+
+                                                                            estDejaInvite = true;
+                                                                            <ul>
+                                                                                <li><a href="#" title="" class="hire">Already invite</a></li>
+                                                                                <li><a  href="@Url.Action("Abort", "Friends", new { id = @user.Id })" title="" class="envlp">Abort</a></li>
+                                                                            </ul>
+                                                                            break;
+
+                                                                        }
+                                                                    }
+                                                                }
+                                                                @if (estdedans == false && isId == false && estDejaInvite == false)
+                                                                {
+                                                                    <ul>
+                                                                        <li><a href="@Url.Action("InviteFriend", "Friends", new { id = @user.Id })" title="" class="followw">Add friend</a></li>
+                                                                    </ul>
+                                                                }
+
+                                                                <a href="#" title="">View Profile</a>
+                                                            </div>
+                                                            }
+                                                            }
+
+
+                                                            <!--user-profy end-->
+                                                            <!--user-profy end-->
+                                                            <!--user-profy end-->
+                                                            <!--user-profy end-->
+                                                            <!--user-profy end-->
+                                                            <!--user-profy end-->
+                                                        </div>
+                                                        <!--profiles-slider end-->
+                                                    </div>
+                                                }
+                                                <!--top-profiles end-->
+                                            }
+                                        }
+                                        <!---<div class="posty">
+    </div>-->
+                                        <!--posty end-->
+
+                                        <div class="process-comm">
+                                            <div class="spinner">
+                                                <div class="bounce1"></div>
+                                                <div class="bounce2"></div>
+                                                <div class="bounce3"></div>
+                                            </div>
+                                        </div>
+                                        <!--process-comm end-->
+                                    </div>
+                                    <!--posts-section end-->
+                                </div>
+                                <!--main-ws-sec end-->
+                            </div>
+                            <div class="col-lg-3 pd-right-none no-pd">
+                                <div class="right-sidebar">
+                                    <div class="widget widget-about">
+                                        <img src="~/Content/user/images/netAtlas.png" alt="">
+                                        <h3>Chat with friends on NetAtlas</h3>
+                                        <span>Spend a wonderful time here!</span>
+                                        <div class="sign_link">
+                                            <h3><a href="@Url.Action("Logout","Account")" title="">Log out</a></h3>
+                                            <a href="#" title="">Learn More</a>
+                                        </div>
+                                    </div>
+                                    <!--widget-about end-->
+
+                                </div>
+                                <!--right-sidebar end-->
+                            </div>
+                        </div>
+                    </div><!-- main-section-data end-->
+                </div>
+            </div>
+        </main>
+
+
+        <div class="post-popup pst-pj">
+            <div class="post-project">
+                <h3>Post photo/video</h3>
+
+                <div class="post-project-fields">
+                    @using (Html.BeginForm("PostPict", "ChatRoom", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="titre" placeholder="Title">
+                                <ul>
+                                    <li class="row">
+                                        <div class="">
+                                            <input type="radio" name="type" value="Photo" checked>
+                                            <label>
+                                                <span></span>
+                                            </label>
+                                            <small>Photo</small>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="">
+                                            <input type="radio" name="type" value="Video">
+                                            <label>
+                                                <span></span>
+                                            </label>
+                                            <small>Video</small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="file" name="Picture" class="form-control" placeholder="Photo or Video">
+                            </div>
+                            <div class="col-lg-12">
+                                <ul>
+                                    <li><button class="active" type="submit" value="post">Post</button></li>
+                                    <li><a href="Index.cshtml" title="">Cancel</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    </div>
+                <!--post-project-fields end-->
+                <a href="#" title=""><i class="la la-times-circle-o"></i></a>
+            </div>
+            <!--post-project end-->
+        </div>
+        <!--post-project-popup end-->
+
+        <div class="post-popup job_post">
+
+            <!--Le template -post-project-popup end post-project end post-project-fields end-->
+            <div class="post-project">
+                <h3>Post a message</h3>
+                <div class="post-project-fields">
+                    @using (Html.BeginForm("PostComment", "ChatRoom", FormMethod.Post))
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="title" placeholder="Title">
+                                <ul>
+                                    <li class="row">
+                                        <div class="">
+                                            <input type="radio" name="type" value="Lien" checked>
+                                            <label>
+                                                <span></span>
+                                            </label>
+                                            <small>Link</small>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="">
+                                            <input type="radio" name="type" value="Comment">
+                                            <label>
+                                                <span></span>
+                                            </label>
+                                            <small>Message</small>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea name="text" placeholder="Content"></textarea>
+                            </div>
+                            <div class="col-lg-12">
+                                <ul>
+                                    <li><button class="active" type="submit" value="post">Post</button></li>
+                                    <li><a href="Index.cshtml" title="">Cancel</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    </div>
+                <a href="#" title=""><i class="la la-times-circle-o"></i></a>
+            </div>
+        </div>
+
+
+        <div class="chatbox-list">
+            <div class="chatbox">
+                <div class="chat-mg">
+                    <a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a>
+                    <span>2</span>
+                </div>
+                <div class="conversation-box">
+                    <div class="con-title mg-3">
+                        <div class="chat-user-info">
+                            <img src="http://via.placeholder.com/34x33" alt="">
+                            <h3>user <span class="status-info"></span></h3>
+                        </div>
+                        <div class="st-icons">
+                            <a href="#" title=""><i class="la la-cog"></i></a>
+                            <a href="#" title="" class="close-chat"><i class="la la-minus-square"></i></a>
+                            <a href="#" title="" class="close-chat"><i class="la la-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="chat-hist mCustomScrollbar" data-mcs-theme="dark">
+                        <div class="chat-msg">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                                malesuada. Vivamus suscipit tortor eget felis porttitor.
+                            </p>
+                            <span>Sat, Aug 23, 1:10 PM</span>
+                        </div>
+                        <div class="date-nd">
+                            <span>Sunday, August 24</span>
+                        </div>
+                        <div class="chat-msg st2">
+                            <p>Cras ultricies ligula.</p>
+                            <span>5 minutes ago</span>
+                        </div>
+                        <div class="chat-msg">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                                malesuada. Vivamus suscipit tortor eget felis porttitor.
+                            </p>
+                            <span>Sat, Aug 23, 1:10 PM</span>
+                        </div>
+                    </div>
+                    <!--chat-list end-->
+                    <div class="typing-msg">
+                        <form>
+                            <textarea placeholder="Type a message here"></textarea>
+                            <button type="submit"><i class="fa fa-send"></i></button>
+                        </form>
+                        <ul class="ft-options">
+                            <li><a href="#" title=""><i class="la la-smile-o"></i></a></li>
+                            <li><a href="#" title=""><i class="la la-camera"></i></a></li>
+                            <li><a href="#" title=""><i class="fa fa-paperclip"></i></a></li>
+                        </ul>
+                    </div>
+                    <!--typing-msg end-->
+                </div>
+                <!--chat-history end-->
+            </div>
+            <div class="chatbox">
+                <div class="chat-mg">
+                    <a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a>
+                </div>
+                <div class="conversation-box">
+                    <div class="con-title mg-3">
+                        <div class="chat-user-info">
+                            <img src="http://via.placeholder.com/34x33" alt="">
+                            <h3>user <span class="status-info"></span></h3>
+                        </div>
+                        <div class="st-icons">
+                            <a href="#" title=""><i class="la la-cog"></i></a>
+                            <a href="#" title="" class="close-chat"><i class="la la-minus-square"></i></a>
+                            <a href="#" title="" class="close-chat"><i class="la la-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="chat-hist mCustomScrollbar" data-mcs-theme="dark">
+                        <div class="chat-msg">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                                malesuada. Vivamus suscipit tortor eget felis porttitor.
+                            </p>
+                            <span>Sat, Aug 23, 1:10 PM</span>
+                        </div>
+                        <div class="date-nd">
+                            <span>Sunday, August 24</span>
+                        </div>
+                        <div class="chat-msg st2">
+                            <p>Cras ultricies ligula.</p>
+                            <span>5 minutes ago</span>
+                        </div>
+                        <div class="chat-msg">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget
+                                malesuada. Vivamus suscipit tortor eget felis porttitor.
+                            </p>
+                            <span>Sat, Aug 23, 1:10 PM</span>
+                        </div>
+                    </div>
+                    <!--chat-list end-->
+                    <div class="typing-msg">
+                        <form>
+                            <textarea placeholder="Type a message here"></textarea>
+                            <button type="submit"><i class="fa fa-send"></i></button>
+                        </form>
+                        <ul class="ft-options">
+                            <li><a href="#" title=""><i class="la la-smile-o"></i></a></li>
+                            <li><a href="#" title=""><i class="la la-camera"></i></a></li>
+                            <li><a href="#" title=""><i class="fa fa-paperclip"></i></a></li>
+                        </ul>
+                    </div>
+                    <!--typing-msg end-->
+                </div>
+                <!--chat-history end-->
+            </div>
+            <div class="chatbox">
+                <div class="chat-mg bx">
+                    <a href="#" title=""><img src="~/Content/user/images/chat.png" alt=""></a>
+                    <span>2</span>
+                </div>
+                <div class="conversation-box">
+                    <div class="con-title">
+                        <h3>Messages</h3>
+                        <a href="#" title="" class="close-chat"><i class="la la-minus-square"></i></a>
+                    </div>
+                    <div class="chat-list">
+                        <div class="conv-list active">
+                            <div class="usrr-pic">
+                                <img src="http://via.placeholder.com/50x50" alt="">
+                                <span class="active-status activee"></span>
+                            </div>
+                            <div class="usy-info">
+                                <h3>user </h3>
+                                <span>Lorem ipsum dolor <img src="~/Content/user/images/smley.png" alt=""></span>
+                            </div>
+                            <div class="ct-time">
+                                <span>1:55 PM</span>
+                            </div>
+                            <span class="msg-numbers">2</span>
+                        </div>
+                        <div class="conv-list">
+                            <div class="usrr-pic">
+                                <img src="http://via.placeholder.com/50x50" alt="">
+                            </div>
+                            <div class="usy-info">
+                                <h3>user </h3>
+                                <span>Lorem ipsum dolor <img src="~/Content/user/images/smley.png" alt=""></span>
+                            </div>
+                            <div class="ct-time">
+                                <span>11:39 PM</span>
+                            </div>
+                        </div>
+                        <div class="conv-list">
+                            <div class="usrr-pic">
+                                <img src="http://via.placeholder.com/50x50" alt="">
+                            </div>
+                            <div class="usy-info">
+                                <h3>user </h3>
+                                <span>Lorem ipsum dolor <img src="~/Content/user/images/smley.png" alt=""></span>
+                            </div>
+                            <div class="ct-time">
+                                <span>0.28 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--chat-list end-->
+                </div>
+                <!--conversation-box end-->
+            </div>
+        </div>
+        <!--chatbox-list end-->
+
+    </div>
+    <!--theme-layout end-->
+
+
+
+    <script type="text/javascript" src="~/Content/user/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/popper.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/jquery.mCustomScrollbar.js"></script>
+    <script type="text/javascript" src="~/Content/user/lib/slick/slick.min.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/scrollbar.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/script.js"></script>
+
+</body>
+
+</html>
