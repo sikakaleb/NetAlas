@@ -1,0 +1,164 @@
+﻿@model NetAtlas.ViewModels.LoginVM
+
+
+
+@{
+    ViewBag.Title = "Login";
+    // Layout = "~/Views/Account/";
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>NetAtlas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/line-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/line-awesome-font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/lib/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/lib/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/user/css/responsive.css">
+    <link href="~/Content/user/images/netAtlas.png" rel="icon">
+</head>
+
+
+<body class="sign-in">
+
+
+    <div class="wrapper">
+
+
+        <div class="sign-in-page">
+            <div class="signin-popup">
+                <div class="signin-pop">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="cmp-info">
+                                <div class="cm-logo">
+                                    <img src="~/Content/user/images/na-logo.png" alt="">
+                                    <p>
+                                        As a social network, NetAtlas allows registered members to create a network of friends and exchange
+                                        content including texts, and media.
+                                        NetAtlas is a social utility that connects you with the people around you.
+                                    </p>
+                                </div><!--cm-logo end-->
+                                <img src="~/Content/user/images/cm-main.png" alt="">
+                            </div><!--cmp-info end-->
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="login-sec">
+                                <ul class="sign-control">
+                                    <li data-tab="tab-1" class="current">@Html.ActionLink("Sign in", "Login", "Account")</li>
+                                    <li data-tab="tab-2"><a href="@Url.Action( "Register", "Account")">Sign up</a></li>
+                                </ul>
+                                <div class="sign_in_sec current" id="tab-1">
+
+                                    <h3>Sign in</h3>
+                                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                                    {
+
+
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="row">
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control",placeholder = "Username" } })
+                                                    <i class="la la-user"></i>
+                                                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+
+                                                </div><!--sn-field end-->
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                                                    <i class="la la-lock"></i>
+                                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="checky-sec">
+                                                    <div class="fgt-sec">
+                                                        <input type="checkbox" name="cc" id="c1">
+                                                        <label for="c1">
+                                                            <span></span>
+                                                        </label>
+                                                        <small>Remember me</small>
+                                                    </div><!--fgt-sec end-->
+                                                    <a href="#" title="">Forgot Password?</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <button type="submit" value="submit">Sign in</button>
+                                            </div>
+                                        </div>
+                                    }
+                                
+
+                                    <div class="login-resources">
+                                        <h4>Connect to other popular social networks</h4>
+                                        <ul>
+                                            <li><a href="https://www.facebook.com/" title="" class="fb"><i class="fa fa-facebook"></i>Login To Facebook</a></li>
+                                            <li><a href="https://twitter.com/?msclkid=0048b691a69011ecb0783ffc6f10ed90" title="" class="tw"><i class="fa fa-twitter"></i>Login To Twitter</a></li>
+                                            <li><a href="https://www.linkedin.com/?msclkid=0820a3b1a69011ec93d355932c9a2fcd" title="" class="lin"><i class="fa fa-linkedin"></i>Login To LinkedIn</a></li>
+                                     
+
+                                        </ul>
+                                    </div><!--login-resources end-->
+
+                                </div><!--sign_in_sec end-->
+
+                            </div><!--login-sec end-->
+                            <!----------------------------------------------------------------------------------------------->
+                        <div class="sign_in_sec" id="tab-2">
+                            <div class="dff-tab  current" id="tab-3">
+                                <h3><a href="@Url.Action( "Register", "Account")">Sign up</a></h3>
+                            </div>
+
+                        </div>
+                            <!----------------------------------------------------------------------------------------------->
+
+                        </div>
+                    </div>
+                </div><!--signin-pop end-->
+            </div><!--signin-popup end-->
+            <div class="footy-sec">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" title="">Help Center</a></li>
+                        <li><a href="#" title="">Privacy Policy</a></li>
+                        <li><a href="#" title="">Community Guidelines</a></li>
+                        <li><a href="#" title="">Cookies Policy</a></li>
+                        <li>@Html.ActionLink("VIP Users", "HLogin", "Account")</li>
+                        <li><a href="#" title="">Language</a></li>
+                        <li><a href="#" title="">Copyright Policy</a></li>
+                    </ul>
+                    <p><img src="~/Content/user/images/copy-icon.png" alt="">Copyright 2022</p>
+                </div>
+            </div><!--footy-sec end-->
+        </div><!--sign-in-page end-->
+
+
+    </div><!--theme-layout end-->
+
+
+
+    <script type="text/javascript" src="~/Content/user/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/popper.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/user/lib/slick/slick.min.js"></script>
+    <script type="text/javascript" src="~/Content/user/js/script.js"></script>
+</body>
+</html>
